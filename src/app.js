@@ -1,8 +1,16 @@
 const express = require('express');
 const app = express();
 const homeRouter = require('./home/home.routes');
+const categoryRouter = require('./category/category.routes');
+const documentRouter = require('./document/document.routes');
 const bodyParser = require('body-parser');
 const dbconnection = require('../src/database/dbconnection');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.set('view egine', 'ejs');
+app.use(express.static('public'));
 
 dbconnection
     .authenticate()
@@ -13,11 +21,7 @@ dbconnection
     });
 
 app.use('/', homeRouter);
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
-app.set('view egine', 'ejs');
-app.use(express.static('public'));
+app.use('/', categoryRouter);
+app.use('/', documentRouter);
 
 module.exports = app;

@@ -1,0 +1,61 @@
+@charset "utf-8";
+@import "../../bulma/bulma.sass";
+
+
+//my variables
+$my-purple: #8257E6;
+$my-background-color: #181818;
+$my-text-color: #FFFF;
+
+// Update Bulma's global variables
+$primary: $my-purple;
+
+// Update some of Bulma's component variables
+//inputs /label
+$input-focus-box-shadow-color: $my-purple;
+$input-focus-box-shadow-size: 0.1em;
+$input-icon-color: $dark;
+
+$label-color: $my-text-color;
+//
+
+//buttons
+$button-color: $my-text-color;
+$button-padding-horizontal: 1rem;
+$button-background-color: $my-purple;
+$button-border-color: none;
+//
+
+$body-color: $my-text-color;
+$title-color: $my-text-color;
+$body-background-color: $my-background-color;
+$control-border-width: 2px;
+
+
+
+
+
+
+//column global
+.column.navigator {
+    border-bottom-right-radius: 10px;
+    height: 100vh;
+}
+
+@media (max-width: 772px) {
+    .column.navigator {
+        border-bottom-right-radius: 10px;
+        height: 100%;
+    }
+}
+
+@import "../../bulma/sass/utilities/_all.sass";
+@import "../../bulma/sass/base/_all.sass";
+@import "../../bulma/sass/elements/button.sass";
+@import "../../bulma/sass/elements/container.sass";
+@import "../../bulma/sass/elements/title.sass";
+@import "../../bulma/sass/form/_all.sass";
+@import "../../bulma/sass/components/navbar.sass";
+@import "../../bulma/sass/layout/hero.sass";
+@import "../../bulma/sass/layout/section.sass";
+

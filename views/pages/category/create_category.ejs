@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <%- include('../../partials/head'); %>
+    <link rel="stylesheet" href="/css/category/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="columns">
+
+        <%- include('../../partials/navigator'); %>
+        
+        <div class="column is-11">
+            <section class="section is-fullhd">
+
+                <div class="container">
+
+                    <h1 class="title is-4">Criar categorias</h1>
+                    
+                    <form action="/category/save" method="post">
+                        <div class="column is-two-fifths">
+                            <label class="label">Nome</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="title" id="title" type="text" placeholder="ex: nodejs">
+                                <span class="icon is-small is-left">
+                                    <ion-icon name="folder-outline"></ion-icon>
+                                </span>
+                            </div>
+                            <p class="help">escolha um nome para sua categoria</p>
+                        </div>
+                        <div class="column is-two-fifths">
+                            <button class="button">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    
+    
+</body>
+<%- include('../../partials/footer'); %>
+</html>
