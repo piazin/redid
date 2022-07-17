@@ -10281,17 +10281,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   padding: 3rem 1.5rem 6rem;
 }
 
-.column.navigator {
-  border-bottom-right-radius: 10px;
-  height: 100vh;
-}
-
-@media (max-width: 772px) {
-  .column.navigator {
-    border-bottom-right-radius: 10px;
-    height: 100%;
-  }
-}
 /* Bulma Utilities */
 .button, .input, .textarea, .select select, .file-cta,
 .file-name, .pagination-previous,
@@ -10408,7 +10397,7 @@ fieldset[disabled] .pagination-ellipsis {
   width: 20px;
 }
 .delete::before, .modal-close::before, .delete::after, .modal-close::after {
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: #181818;
   content: "";
   display: block;
   left: 50%;
@@ -10626,7 +10615,7 @@ pre {
 }
 
 body {
-  color: white;
+  color: #F2F2F2;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
@@ -10714,7 +10703,7 @@ table th:not([align]) {
   text-align: inherit;
 }
 table th {
-  color: hsl(0deg, 0%, 21%);
+  color: #F2F2F2;
 }
 
 @keyframes spinAround {
@@ -10729,7 +10718,7 @@ table th {
   background-color: #8257E6;
   border-color: none;
   border-width: 1px;
-  color: white;
+  color: #F2F2F2;
   cursor: pointer;
   justify-content: center;
   padding-bottom: calc(0.5em - 1px);
@@ -11926,7 +11915,7 @@ table th {
 }
 
 .title {
-  color: white;
+  color: #F2F2F2;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.125;
@@ -12748,7 +12737,7 @@ table th {
 }
 
 .label {
-  color: white;
+  color: #F2F2F2;
   display: block;
   font-size: 1rem;
   font-weight: 700;

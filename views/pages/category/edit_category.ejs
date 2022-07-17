@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="/css/category/style.css">
+    <%- include('../../partials/head'); %>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="columns">
+
+        <%- include('../../partials/navigator'); %>
+        
+        <div class="column is-11">
+            <section class="section is-fullhd">
+
+                <div class="container">
+
+                    <h1 class="title is-4">Editar categorias</h1>
+                        <form action="/admin/category/update/<%= category.id %>" method="post">
+                            <div class="column is-two-fifths">
+                                <label class="label">Editar nome</label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input class="input" name="title" id="title" value="<%= category.title %>" type="text">
+                                    <span class="icon is-small is-left">
+                                        <ion-icon name="create-outline"></ion-icon>
+                                    </span>
+                                </div>
+                                <p class="help">renomeando a categoria <span><%= category.title %></span></p>
+                            </div>
+                            <div class="column is-two-fifths">
+                                <button class="button" type="submit">Salvar alterações</button>
+                            </div>
+                        </form>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    
+    
+</body>
+<%- include('../../partials/footer'); %>
+</html>

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.column.navigator {
+    border-bottom-right-radius: 10px;
+    position: relative;
+    height: 100vh;
+}
+
+.go-back {
+    bottom: 20px;
+    font-size: 25px;
+    position: absolute;
+    left: 40px;
+}
+
+@media (max-width: 772px) {
+    .column.navigator {
+        border-bottom-right-radius: 0px;
+        height: 15vh;
+        width: 100%;
+    }
+
+    .go-back {
+        display: none;
+    }
+}

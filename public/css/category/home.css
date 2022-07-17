@@ -1,0 +1,23 @@
+th {
+    color: #f1f1f1 !important;
+    background-color: #181818;
+}
+
+#btn-create-category {
+    align-items: center;
+    background-color: #8257E6;
+    border-radius: 5px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    right: 20px;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+}
+
+#btn-create-category ion-icon {
+    color: #F2F2F2;
+    font-size: 20px;
+}
+

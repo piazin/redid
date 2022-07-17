@@ -2,13 +2,74 @@
 <html lang="pt-br">
 <head>
     <%- include('../../partials/head'); %>
+    <link rel="stylesheet" href="/css/category/style.css">
+    <link rel="stylesheet" href="/css/category/home.css">
     <title>Categorias</title>
 </head>
 <body>
+    <div class="columns">
+
+        <%- include('../../partials/navigator'); %>
+        
+        <div class="column is-11">
+            <section class="section is-fullhd">
+
+                <div class="table-container">
+                    
+                    <table class="table is-bordered is-striped is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Titulo</th>
+                                <th>Slug</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <% categories.forEach(category => { %>
+                            <tr>
+                                <th><%= category.id %></th>
+                                <th><%= category.title %></th>
+                                <th><%= category.slug %></th>
+                                <th>
+
+                                    <a href="/admin/category/edit/<%= category.id%>" class="button">
+                                        <ion-icon name="create-outline"></ion-icon>
+                                    </a>
+                                    <form style="display: inline-block;" action="/admin/category/delete/<%= category.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
+                                        <button class="button is-danger">
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        </button>
+                                    </form>
+
+                                </th>
+                            </tr>
+                            <% }) %>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <a href="/admin/category/create" id="btn-create-category">
+        <ion-icon name="add-outline"></ion-icon>
+    </a>
     
 </body>
-</html>
-<body>
-    <h1 class="title">Categorias</h1>
-</body>
+<%- include('../../partials/footer'); %>
+<script>
+    window.addEventListener('resize', ()=>{
+        var windowWidth = document.documentElement.clientWidth;
+
+        if(windowWidth <= 1000){
+            document.querySelector('.table').classList.remove('is-fullwidth');
+        } else {
+            document.querySelector('.table').classList.add('is-fullwidth');
+        }
+    })
+</script>
 </html>

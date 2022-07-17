@@ -5,49 +5,39 @@
 //my variables
 $my-purple: #8257E6;
 $my-background-color: #181818;
-$my-text-color: #FFFF;
+$my-text-color: #F2F2F2;
 
 // Update Bulma's global variables
 $primary: $my-purple;
+$scheme-main: #181818;
+$text-strong: $my-text-color;
 
 // Update some of Bulma's component variables
-//inputs /label
+//inputs /labels
 $input-focus-box-shadow-color: $my-purple;
 $input-focus-box-shadow-size: 0.1em;
 $input-icon-color: $dark;
 
 $label-color: $my-text-color;
-//
 
 //buttons
 $button-color: $my-text-color;
 $button-padding-horizontal: 1rem;
 $button-background-color: $my-purple;
 $button-border-color: none;
-//
 
+//table
+$table-color: $my-background-color;
+$table-background-color: $my-background-color;
+$table-body-background-color: $my-background-color;
+
+//all
 $body-color: $my-text-color;
 $title-color: $my-text-color;
 $body-background-color: $my-background-color;
 $control-border-width: 2px;
 
 
-
-
-
-
-//column global
-.column.navigator {
-    border-bottom-right-radius: 10px;
-    height: 100vh;
-}
-
-@media (max-width: 772px) {
-    .column.navigator {
-        border-bottom-right-radius: 10px;
-        height: 100%;
-    }
-}
 
 @import "../../bulma/sass/utilities/_all.sass";
 @import "../../bulma/sass/base/_all.sass";

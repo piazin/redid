@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <%- include('../../partials/head'); %>
     <link rel="stylesheet" href="/css/category/style.css">
+    <%- include('../../partials/head'); %>
     <title>Document</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
                     <h1 class="title is-4">Criar categorias</h1>
                     
-                    <form action="/category/save" method="post">
+                    <form action="/category/create" method="post">
                         <div class="column is-two-fifths">
                             <label class="label">Nome</label>
                             <div class="control has-icons-left has-icons-right">
@@ -30,7 +30,7 @@
                             <p class="help">escolha um nome para sua categoria</p>
                         </div>
                         <div class="column is-two-fifths">
-                            <button class="button">Salvar</button>
+                            <button class="button" type="submit">Salvar</button>
                         </div>
                     </form>
                 </div>
