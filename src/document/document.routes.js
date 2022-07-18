@@ -8,4 +8,5 @@ router.get('/admin/document/create', documentControllers.render_document_create)
 router.get('/admin/document/edit/:id', documentControllers.render_document_edit);
 router.post('/admin/document/create', documentControllers.to_save_document);
 router.post('/admin/document/delete/:id', documentControllers.delete_document);
+router.post('/admin/document/update/:id', documentControllers.update_document);
 module.exports = router;

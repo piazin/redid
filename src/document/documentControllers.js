@@ -82,5 +82,28 @@ module.exports = {
         } else {
             res.redirect('/admin/document');
         }
+    },
+    update_document(req, res){
+        var id = req.params.id;
+        var {title, body, url_thumbnail, category_id} = req.body;
+        var slug = slugify(title);
+
+        if( title != undefined && body != undefined && url_thumbnail != undefined && category_id != undefined){
+            Document.update({
+                title: title,
+                slug: slug,
+                body: body,
+                urlThumbnail: url_thumbnail,
+                categoryId: category_id
+            }, {where: {id: id}}).then(()=>{
+                res.redirect('/admin/document');
+            }).catch((err)=>{
+                console.error('err', err);
+                res.redirect('/');
+            });
+        } else {
+            res.redirect(`/admin/document/edit/${id}`);
+        }
+        
     }
 }
