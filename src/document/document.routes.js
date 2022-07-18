@@ -3,6 +3,9 @@ const router = express.Router();
 
 const documentControllers = require('./documentControllers');
 
-router.get('/documents', documentControllers.render_documents);
-
+router.get('/admin/document', documentControllers.render_documents);
+router.get('/admin/document/create', documentControllers.render_document_create);
+router.get('/admin/document/edit/:id', documentControllers.render_document_edit);
+router.post('/admin/document/create', documentControllers.to_save_document);
+router.post('/admin/document/delete/:id', documentControllers.delete_document);
 module.exports = router;

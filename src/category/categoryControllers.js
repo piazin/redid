@@ -3,7 +3,7 @@ const slugify = require('slugify');
 
 module.exports = {
     render_category(req, res){
-
+        
         Category.findAll().then((categories)=>{
             res.render('pages/category/home.ejs', {categories: categories});
         }).catch((err)=>{
@@ -26,10 +26,12 @@ module.exports = {
                 title: title,
                 slug: slug
             }).then(()=>{
-                res.redirect('/admin/category');
+                setTimeout(()=>{
+                    res.redirect('/admin/category');
+                }, 3000);
             }).catch((err)=>{
                 console.log('err', err);
-                res.redirect('/admin/category');
+                res.redirect('/admin/category');     
             });
         }
     },
@@ -42,7 +44,9 @@ module.exports = {
                     id: id
                 }
             }).then(()=>{
-                res.redirect('/admin/category');
+                setTimeout(()=>{
+                    res.redirect('/admin/category');
+                }, 3000);
             }).catch((err)=>{
                 console.error('err', err);
                 res.redirect('/');

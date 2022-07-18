@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="/css/global/style.css">
+    <%- include('../../partials/head'); %>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="columns">
+
+        <%- include('../../partials/navigator'); %>
+        
+        <div class="column is-11">
+            <section class="section is-fullhd">
+
+                <div class="container">
+
+                    <h1 class="title is-4">Criar documento</h1>
+                    
+                    <form action="/admin/document/create" method="post">
+                        <div class="column is-two-fifths">
+                            <label class="label">Nome</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="title" id="title" type="text" placeholder="ex: nodejs">
+                                <span class="icon is-small is-left">
+                                    <ion-icon name="folder-outline"></ion-icon>
+                                </span>
+                            </div>
+                            <p class="help">escolha um nome para seu documento</p>
+                        </div>
+
+                        <div class="column is-10">
+                            <label class="label">Escreva seu documento</label>
+                            <textarea name="body" id="tinyEditor" >
+
+                            </textarea>
+                        </div>
+
+                        <div class="column is-two-fifths">
+                            <label class="label">Imagem</label>
+                            <input type="url" class="input" name="url_thumbnail" required placeholder="https://images2.imgbox.com"><!--https://images2.imgbox.com/7d/e4/dZyjVVEb_o.jpg-->
+                            <p class="help">link da imagem para o poster</p>
+                        </div>
+                        
+                        <div class="column is-two-fifths">
+                            
+                            <div class="control has-icons-left">
+                                <div class="select">
+                                  <select required name="category_id">
+                                    <option selected disabled hidden>Selecionar categoria</option>
+                                    <% categories.forEach(category => {%>
+                                        <option value="<%= category.id %>"><%= category.title %></option>
+                                    <% }) %>
+                                  </select>
+                                </div>
+                                <div class="icon is-small is-left">
+                                  <ion-icon name="planet-outline"></ion-icon>
+                                </div>
+                            </div>
+                            <% if(categories.length > 0){ %>
+                                <p class="help">selecione uma categoria</p>
+                              <% } else{ %>  
+                                <p class="help is-danger">você precisa <a href="/admin/category/create" class="link ">criar uma categoria</a> primeiro!</p>
+                             <% } %>
+                              
+                        </div>
+
+                        <div class="column is-two-fifths">
+                            <button class="button" type="submit">Salvar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    
+    
+</body>
+<%- include('../../partials/footer'); %>
+</html>

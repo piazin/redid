@@ -4,7 +4,7 @@
     <%- include('../../partials/head'); %>
     <link rel="stylesheet" href="/css/global/style.css">
     <link rel="stylesheet" href="/css/category/home.css">
-    <title>Categorias</title>
+    <title>Documentos</title>
 </head>
 <body>
     <div class="columns">
@@ -13,7 +13,7 @@
         
         <div class="column is-11">
             <section class="section is-fullhd">
-                <h1 class="title">Categorias</h1>
+                <h1 class="title">Documentos</h1>
                 <div class="table-container">
                     
                     <table class="table is-bordered is-striped is-fullwidth">
@@ -22,29 +22,32 @@
                                 <th>ID</th>
                                 <th>Titulo</th>
                                 <th>Slug</th>
+                                <th>Categoria ID</th>
+                                <th>URL</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            <% categories.forEach(category => { %>
-                            <tr>
-                                <th><%= category.id %></th>
-                                <th><%= category.title %></th>
-                                <th><%= category.slug %></th>
-                                <th>
-
-                                    <a href="/admin/category/edit/<%= category.id%>" class="button">
-                                        <ion-icon name="create-outline"></ion-icon>
-                                    </a>
-                                    <form style="display: inline-block;" action="/admin/category/delete/<%= category.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
-                                        <button class="button is-danger">
-                                            <ion-icon name="trash-outline"></ion-icon>
-                                        </button>
-                                    </form>
-
-                                </th>
-                            </tr>
+                            <% documents.forEach(document => { %>
+                                <tr>
+                                    <th><%= document.id %></th>
+                                    <th><%= document.title %></th>
+                                    <th><%= document.slug %></th>
+                                    <th><%= document.categoryId %></th>
+                                    <th><%= document.urlThumbnail %></th>
+                                    <th>
+    
+                                        <a href="/admin/document/edit/<%= document.id %>" class="button">
+                                            <ion-icon name="create-outline"></ion-icon>
+                                        </a>
+                                        <form style="display: inline-block;" action="/admin/document/delete/<%= document.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
+                                            <button class="button is-danger">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            </button>
+                                        </form>
+    
+                                    </th>
+                                </tr>   
                             <% }) %>
                             
                         </tbody>
@@ -55,7 +58,7 @@
 
     </div>
 
-    <a href="/admin/category/create" id="btn-create-category">
+    <a href="/admin/document/create" id="btn-create-category">
         <ion-icon name="add-outline"></ion-icon>
     </a>
     

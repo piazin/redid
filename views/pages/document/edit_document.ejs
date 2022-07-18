@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="/css/global/style.css">
+    <%- include('../../partials/head'); %>
+    <title>Documents</title>
+</head>
+<body>
+
+    <div class="columns">
+
+        <%- include('../../partials/navigator'); %>
+        
+        <div class="column is-11">
+            <section class="section is-fullhd">
+
+                <div class="container">
+
+                    <h1 class="title is-4">Editar documento</h1>
+                        <form action="/admin/document/update/" method="post">
+                            <div class="column is-two-fifths">
+                                <label class="label">Editar nome</label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input class="input" name="title" id="title" value="<%= document.title %>" type="text">
+                                    <span class="icon is-small is-left">
+                                        <ion-icon name="create-outline"></ion-icon>
+                                    </span>
+                                </div>
+                                <p class="help">renomeando a categoria <span>teste</span></p>
+                            </div>
+
+                            <div class="column is-10">
+                                <label class="label">Escreva seu documento</label>
+                                <textarea name="body" id="tinyEditor">
+                                    <%= document.body %>
+                                </textarea>
+                            </div>
+    
+                            <div class="column is-two-fifths">
+                                <label class="label">Imagem</label>
+                                <input type="url" class="input" value="<%= document.urlThumbnail %>" name="url_thumbnail" required><!--https://images2.imgbox.com/7d/e4/dZyjVVEb_o.jpg-->
+                                <p class="help">link da imagem para o poster</p>
+                            </div>
+                            
+                            <div class="column is-two-fifths">
+                                
+                                <div class="control has-icons-left">
+                                    <div class="select">
+                                      <select required name="category_id">
+                                        <option selected disabled hidden>Selecionar categoria</option>
+                                        <% categories.forEach(category => {%>
+                                            <% if(category.id == document.categoryId) { %>
+                                                <option selected value="<%= category.id %>"><%= category.title %></option>
+                                            <% } else { %>
+                                                <option value="<%= category.id %>"><%= category.title %></option>
+                                            <% } %>
+                                        <% }) %>
+                                      </select>
+                                    </div>
+                                    <div class="icon is-small is-left">
+                                      <ion-icon name="planet-outline"></ion-icon>
+                                    </div>
+                                </div>
+                              
+                                <p class="help">selecione uma categoria</p>
+                            
+                            </div>
+                            
+                            <div class="column is-two-fifths">
+                                <button class="button" type="submit">Salvar alterações</button>
+                            </div>
+                        </form>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    
+    
+</body>
+<%- include('../../partials/footer'); %>
+</html>

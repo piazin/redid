@@ -14,6 +14,10 @@ const Document = dbconnection.define('document', {
     body: {
         type: Sequelize.TEXT,
         allowNull: false
+    },
+    urlThumbnail: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 });
 
