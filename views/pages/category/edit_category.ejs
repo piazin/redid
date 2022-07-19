@@ -21,7 +21,7 @@
                             <div class="column is-two-fifths">
                                 <label class="label">Editar nome</label>
                                 <div class="control has-icons-left has-icons-right">
-                                    <input class="input" name="title" id="title" value="<%= category.title %>" type="text">
+                                    <input class="input" onkeyup="onChangeInputs(this)" name="title" id="title" value="<%= category.title %>" type="text">
                                     <span class="icon is-small is-left">
                                         <ion-icon name="create-outline"></ion-icon>
                                     </span>
@@ -29,7 +29,7 @@
                                 <p class="help">renomeando a categoria <span><%= category.title %></span></p>
                             </div>
                             <div class="column is-two-fifths">
-                                <button class="button" type="submit">Salvar alterações</button>
+                                <button class="button" id="checkButton" type="submit">Salvar alterações</button>
                             </div>
                         </form>
                 </div>

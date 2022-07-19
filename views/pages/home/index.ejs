@@ -1,12 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <%- include('../../partials/head'); %>
-    <link rel="stylesheet" href="/bulma/css/bulma.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home/style.css">
     <title>Home</title>
 </head>
 <body>
-    <h5>Home</h5>
+    <header class="header">
+        <div class="header-container">
+            <div class="container-logo">
+                <a href="/" class="link-home-logo"></a>
+                <img src="/img/Radtek-removebg-preview.png" alt="logo-redid" class="logo">
+                <span class="name-blog">Redid</span>
+            </div>
+
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-items">Frot End</li>
+                    <li class="nav-items">Back End</li>
+                </ul>
+
+                <div class="categories-container">
+                    <ion-icon name="terminal-outline"></ion-icon>
+
+                    <div class="box-categories">
+                        <ul class="categories-list">
+                            <li class="categories-items">Exemplo</li>
+                            <li class="categories-items">Outro exemplo</li>
+                            <li class="categories-items">etc</li>
+                            <li class="categories-items">Exemplo</li>
+                            <li class="categories-items">Outro exemplo</li>
+                            <li class="categories-items">etc</li>
+                            <li class="categories-items">Exemplo</li>
+                            <li class="categories-items">Outro exemplo</li>
+                            <li class="categories-items">etc</li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <section class="cover">
+            <div class="content-cover">
+                <h1 class="title-cover">Redid</h1>
+                <p>Bem vindo ao nosso blog sobre tecnologia, inscreva-se.</p>
+            </div>
+        </section>
+
+        <div class="card-container">
+            <div class="contend-card">
+                <article class="card">
+                    <img src="/img/Radtek.png" alt="" class="card-img" >
+                    <h1>teste</h1>
+                </article>
+
+                <article class="card">
+                    <h1>teste</h1>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quibusdam amet, veritatis quidem animi et voluptas quam aut voluptate similique doloribus in voluptatum, odio itaque impedit a rem accusamus omnis!</span>
+                </article>
+
+                <article class="card">
+                    <h1>teste</h1>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quibusdam amet, veritatis quidem animi et voluptas quam aut voluptate similique doloribus in voluptatum, odio itaque impedit a rem accusamus omnis!</span>
+                </article>
+
+                <article class="card">
+                    
+                </article>
+
+                <article class="card">
+                    
+                </article>
+
+                <article class="card">
+                    
+                </article>
+            </div>
+        </div>
+
+    </main>
 </body>
 <%- include('../../partials/footer'); %>
 </html>
+

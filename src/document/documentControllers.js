@@ -1,11 +1,14 @@
 const Document = require('./Document');
 const Category = require('../category/Category');
 const slugify = require('slugify');
+const { json } = require('body-parser');
 
 module.exports = {
     render_documents(req, res){
 
-        Document.findAll().then((documents)=>{
+        Document.findAll({
+            include: [{model: Category}]
+        }).then((documents)=>{
             res.render('pages/document/home.ejs', {documents: documents});
         }).catch((err)=>{
             console.error('err', err);

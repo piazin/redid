@@ -37,7 +37,7 @@
                                     <a href="/admin/category/edit/<%= category.id%>" class="button">
                                         <ion-icon name="create-outline"></ion-icon>
                                     </a>
-                                    <form style="display: inline-block;" action="/admin/category/delete/<%= category.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
+                                    <form class="is-inline-block" action="/admin/category/delete/<%= category.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
                                         <button class="button is-danger">
                                             <ion-icon name="trash-outline"></ion-icon>
                                         </button>

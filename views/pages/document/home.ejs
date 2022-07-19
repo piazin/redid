@@ -23,7 +23,7 @@
                                 <th>Titulo</th>
                                 <th>Slug</th>
                                 <th>Categoria ID</th>
-                                <th>URL</th>
+                                <th>Post preview</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -33,14 +33,18 @@
                                     <th><%= document.id %></th>
                                     <th><%= document.title %></th>
                                     <th><%= document.slug %></th>
-                                    <th><%= document.categoryId %></th>
-                                    <th><%= document.urlThumbnail %></th>
+                                    <th><%= document.category.title %></th>
+                                    <th>
+                                        <figure class="image is-48x48 mb-6">
+                                            <img class="mb-2" src="<%= document.urlThumbnail %>" alt="picture">
+                                        </figure>
+                                    </th>
                                     <th>
     
                                         <a href="/admin/document/edit/<%= document.id %>" class="button">
                                             <ion-icon name="create-outline"></ion-icon>
                                         </a>
-                                        <form style="display: inline-block;" action="/admin/document/delete/<%= document.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
+                                        <form class="is-inline-block" action="/admin/document/delete/<%= document.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
                                             <button class="button is-danger">
                                                 <ion-icon name="trash-outline"></ion-icon>
                                             </button>
