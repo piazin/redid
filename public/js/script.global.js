@@ -1,3 +1,4 @@
+
 //config tinymce
 tinymce.init({
     selector: '#tinyEditor',
@@ -63,7 +64,8 @@ function checkButton(input){
 }
 
 const info = {
-    allSendButtons: document.getElementById('checkButton')
+    allSendButtons: document.getElementById('checkButton'),
+    inputDateValueCard: document.getElementById('input-date-value-card'),
 }
 
 
