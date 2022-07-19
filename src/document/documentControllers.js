@@ -1,12 +1,14 @@
 const Document = require('./Document');
 const Category = require('../category/Category');
 const slugify = require('slugify');
-const { json } = require('body-parser');
 
 module.exports = {
     render_documents(req, res){
 
         Document.findAll({
+            order: [
+                ['createdAt', 'DESC']
+            ],
             include: [{model: Category}]
         }).then((documents)=>{
             res.render('pages/document/home.ejs', {documents: documents});
@@ -28,7 +30,9 @@ module.exports = {
     },
     to_save_document(req, res){
         var {title, body, url_thumbnail, category_id} = req.body;
-        var slug = slugify(title);
+        var slug = slugify(title, {
+            lower: true
+        });
 
         if(title != undefined && body != undefined && category_id != undefined){
             Document.create({
@@ -89,7 +93,9 @@ module.exports = {
     update_document(req, res){
         var id = req.params.id;
         var {title, body, url_thumbnail, category_id} = req.body;
-        var slug = slugify(title);
+        var slug = slugify(title, {
+            lower: true
+        });
 
         if( title != undefined && body != undefined && url_thumbnail != undefined && category_id != undefined){
             Document.update({

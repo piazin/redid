@@ -4,13 +4,16 @@ const slugify = require('slugify');
 module.exports = {
     render_category(req, res){
         
-        Category.findAll().then((categories)=>{
+        Category.findAll({
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        }).then((categories)=>{
             res.render('pages/category/home.ejs', {categories: categories});
         }).catch((err)=>{
             console.log('err', err);
             res.status(404);
         });
- 
     },
     render_create_category(req, res){
         res.render('pages/category/create_category.ejs');

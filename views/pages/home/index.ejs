@@ -27,15 +27,11 @@
 
                     <div class="box-categories">
                         <ul class="categories-list">
-                            <li class="categories-items">Exemplo</li>
-                            <li class="categories-items">Outro exemplo</li>
-                            <li class="categories-items">etc</li>
-                            <li class="categories-items">Exemplo</li>
-                            <li class="categories-items">Outro exemplo</li>
-                            <li class="categories-items">etc</li>
-                            <li class="categories-items">Exemplo</li>
-                            <li class="categories-items">Outro exemplo</li>
-                            <li class="categories-items">etc</li>
+
+                            <% categories.forEach(category => { %>
+                                <li class="categories-items"> <a href="/<%= category.slug%>/<%= category.id %>"> <%= category.title %></a></li>
+                            <% }) %>
+                            
                         </ul>
                     </div>
                 </div>
