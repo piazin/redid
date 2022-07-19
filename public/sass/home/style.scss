@@ -109,11 +109,11 @@ body {
         justify-content: center;
         padding: 1rem;
         position: relative;
-    }
-}
 
-.categories-container:hover .box-categories {
-    display: block;  
+        &:hover .box-categories {
+            display: block;  
+        }
+    }
 }
 
 .categories-container .box-categories {
@@ -123,9 +123,9 @@ body {
     position: absolute;
     padding: 0.5rem;
     height: 12rem;
-    right: 10px;
+    right: 5px;
     overflow-y: auto;
-    top: 50px;
+    top: 45px;
     width: 11rem;
     z-index: 4;
     animation: modalMenu 0.4s normal;   
@@ -226,6 +226,11 @@ body {
 .card-img {
     width: 80%;
     height: 50%;
+
+    .card-picture {
+        height: 100%;
+        width: 100%;
+    }
 }
 
    
