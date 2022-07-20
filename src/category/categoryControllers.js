@@ -49,7 +49,7 @@ module.exports = {
             }).then(()=>{
                 setTimeout(()=>{
                     res.redirect('/admin/category');
-                }, 3000);
+                }, 1000);
             }).catch((err)=>{
                 console.error('err', err);
                 res.redirect('/');
