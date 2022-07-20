@@ -42,7 +42,7 @@
   width: 70%;
 }
 
-.token.keyword, .kr {
+.token.keyword, span .kr {
   color: #9D4B5B;
 }
 
@@ -74,10 +74,12 @@
   .card-container {
     font-size: 1rem;
   }
+
   .language-jsx, .chroma {
     width: 100%;
     max-height: 400px;
   }
+
   .main {
     overflow-x: hidden;
   }
@@ -88,6 +90,7 @@
     line-height: 35px;
     word-wrap: break-word;
   }
+
   .language-jsx, .chroma {
     padding: 0.8rem;
   }
