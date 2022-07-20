@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home/style.css">
+    <link rel="stylesheet" href="/css/home/style-read-document.css">
+    <title>Home</title>
+</head>
+<body>
+
+    <%- include('../../partials/header'); %>
+    
+    <main class="main rd_main">
+
+        <section class="cover" style="background-image: url('<%= document.urlThumbnail %>');">
+            
+        </section>
+
+        <div class="card-container" translate="no"> 
+            <h1 class="title-cover title-document"><%= document.title %></h1>
+            <span class="title-category">
+                <%= document.category.title %>
+                <a class="absolute-link" href="/category/<%= document.category.slug %>"></a>
+            </span>
+            <%- document.body %>   
+           
+        </div>
+
+    </main>
+    <%- include('../../partials/footer-home'); %>
+</body>
+
+<%- include('../../partials/footer'); %>
+
+</html>
+

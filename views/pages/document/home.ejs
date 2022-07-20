@@ -22,7 +22,7 @@
                                 <th>ID</th>
                                 <th>Titulo</th>
                                 <th>Slug</th>
-                                <th>Categoria ID</th>
+                                <th>Categoria</th>
                                 <th>Post preview</th>
                                 <th>Actions</th>
                             </tr>
@@ -35,8 +35,8 @@
                                     <th><%= document.slug %></th>
                                     <th><%= document.category.title %></th>
                                     <th>
-                                        <figure class="image is-48x48 mb-3">
-                                            <img class="mb-2" src="<%= document.urlThumbnail %>" alt="picture">
+                                        <figure class="image is-64x64">
+                                            <img  src="<%= document.urlThumbnail %>" alt="picture" style="max-height: 100%;">
                                         </figure>
                                     </th>
                                     <th>

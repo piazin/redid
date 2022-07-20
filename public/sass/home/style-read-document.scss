@@ -1,0 +1,73 @@
+@import "var.scss";
+.main {
+    overflow-x: auto;
+}
+
+.card-container {
+    display: flex; 
+    flex-direction: column;
+    font-size: 1.2rem;
+    line-height: 40px;
+    gap: 10px; 
+
+    .title-document {
+        text-align: center;
+    }
+    .title-category {
+        color: $secundary-font-color;
+        font-size: .9rem;
+        text-align: center;
+        position: relative;
+    }
+
+    a {
+        color: $primary-color;
+    }
+
+    ul {
+        list-style-position: inside;
+
+        li {
+            line-height: 2rem;
+        }
+    }
+
+    img {
+        height: 100%;
+        max-width: 90%;
+    }
+}
+
+.language-jsx, .chroma {
+    background-color: #282A36;
+    overflow: scroll;
+    font-size: 1rem;
+    padding: 1rem;
+    max-height: 500px;
+    width: 70%;
+}
+
+.token.keyword, .kr {
+    color: $keyword;
+}
+.token.comment {
+    color: $comment;
+}
+.token.operator, .o {
+    color: $operator;
+}
+.token.function, .nx {
+    color: $function;
+}
+.token.parameter, .s2 {
+    color: $parameter;
+}
+.token.interpolation {
+    color: $interpolation;
+}
+
+.kc {
+    color: $primary-color;
+}
+
+@import "media.scss";

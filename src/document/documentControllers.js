@@ -1,16 +1,19 @@
 const Document = require('./Document');
 const Category = require('../category/Category');
 const slugify = require('slugify');
+const moment = require('moment');
+moment.locale('pt-br');
 
 module.exports = {
     render_documents(req, res){
-
+        
         Document.findAll({
             order: [
                 ['createdAt', 'DESC']
             ],
             include: [{model: Category}]
         }).then((documents)=>{
+    
             res.render('pages/document/home.ejs', {documents: documents});
         }).catch((err)=>{
             console.error('err', err);
@@ -62,7 +65,7 @@ module.exports = {
             }).then(()=>{
                 setTimeout(()=>{
                     res.redirect('/admin/document');
-                }, 3000);
+                }, 1000);
             }).catch((err)=>{
                 console.error('err', err);
             });

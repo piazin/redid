@@ -12,14 +12,17 @@
 }
 ::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
     background: #F4F4F4;
 }
 ::-webkit-scrollbar-thumb {
-    background: #dad7d7;
+    background: $primary-color;
 }
+
 
 html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -108,11 +111,14 @@ body {
 
     .categories-container {
         align-items: center;
-        cursor: pointer;
         display: flex;
         justify-content: center;
         padding: 1rem;
         position: relative;
+
+        ion-icon {
+            cursor: pointer;
+        }
 
         &:hover .box-categories {
             display: block;  
@@ -137,18 +143,30 @@ body {
 
 .categories-list {
     list-style: none;
+    cursor: pointer;
+    position: relative;
 
     .categories-items {
         background-color: $bg-color-global;
         border: 1px solid $box-shadow-global;
         border-radius: 0.2rem;
         padding: 0.5rem;
+        position: relative;
         margin: 10px 1px;
     }
 }
 
 //end header
 
+.absolute-link {
+    color: $font-color-global;
+    height: 100%;
+    right: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-decoration: none;
+}
 
 //start main
 .main {
@@ -189,6 +207,7 @@ body {
 
         .title-cover {
             color: $primary-color;
+            font-size: 3rem;
             text-transform: uppercase;
         }
     }
@@ -216,21 +235,20 @@ body {
     height: 350px;
     width: 300px;
     position: relative;
-    transition: box-shadow .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1);
+    transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     &:hover {
         box-shadow: 0 10px 20px 4px rgba(255, 255, 255, 0.1);
+        transform: scale(1.1);
     }
     
-    &:hover .card-icon {
-        opacity: 1;
-        transform: translateX(20%);
-    }
 }
 
 .card-img {
     width: 100%;
     height: 50%;
+    position: relative;
 
     .card-picture {
         height: 100%;
@@ -249,11 +267,13 @@ body {
 
     .info-title {
         text-align: center;
+        position: relative;
     }
 
     .info {
         color: $primary-color;
         font-size: 14px;
+        position: relative;
     }
 
     .info.date {
@@ -264,16 +284,40 @@ body {
     }
 }
 
+//end main
+
 .footer {
+    align-items: center;
     background-color: #181818;
+    display: flex;
+    justify-content: center;
     height: 200px;
     width: 100%;
+
+    .footer-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+
+        .social-networks .links {
+            position: relative;
+        }
+        .social-networks ion-icon {
+            font-size: 2rem; 
+        }
+    }
 }
 
    
+//errors   
    
-   
-   
+.no-results {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 @keyframes menu {
     0% {

@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
+.main {
+  overflow-x: auto;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  line-height: 40px;
+  gap: 10px;
+}
+.card-container .title-document {
+  text-align: center;
+}
+.card-container .title-category {
+  color: #9C9C9C;
+  font-size: 0.9rem;
+  text-align: center;
+  position: relative;
+}
+.card-container a {
+  color: #8257E6;
+}
+.card-container ul {
+  list-style-position: inside;
+}
+.card-container ul li {
+  line-height: 2rem;
+}
+.card-container img {
+  height: 100%;
+  max-width: 90%;
+}
+
+.language-jsx, .chroma {
+  background-color: #282A36;
+  overflow: scroll;
+  font-size: 1rem;
+  padding: 1rem;
+  max-height: 500px;
+  width: 70%;
+}
+
+.token.keyword, .kr {
+  color: #9D4B5B;
+}
+
+.token.comment {
+  color: #535669;
+}
+
+.token.operator, .o {
+  color: #9D4B5B;
+}
+
+.token.function, .nx {
+  color: #4AEB76;
+}
+
+.token.parameter, .s2 {
+  color: #d3975d;
+}
+
+.token.interpolation {
+  color: #E9F288;
+}
+
+.kc {
+  color: #8257E6;
+}
+
+@media only screen and (max-width: 600px) {
+  .card-container {
+    font-size: 1rem;
+  }
+  .language-jsx, .chroma {
+    width: 100%;
+    max-height: 400px;
+  }
+  .main {
+    overflow-x: hidden;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .card-container {
+    font-size: 1rem;
+    line-height: 35px;
+    word-wrap: break-word;
+  }
+  .language-jsx, .chroma {
+    padding: 0.8rem;
+  }
+}
+
+/*# sourceMappingURL=style-read-document.css.map */

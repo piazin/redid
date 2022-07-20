@@ -11,15 +11,17 @@
 
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
   background: #F4F4F4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dad7d7;
+  background: #8257E6;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -103,11 +105,13 @@ body {
 }
 .navbar .categories-container {
   align-items: center;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   padding: 1rem;
   position: relative;
+}
+.navbar .categories-container ion-icon {
+  cursor: pointer;
 }
 .navbar .categories-container:hover .box-categories {
   display: block;
@@ -130,13 +134,26 @@ body {
 
 .categories-list {
   list-style: none;
+  cursor: pointer;
+  position: relative;
 }
 .categories-list .categories-items {
   background-color: #111111;
   border: 1px solid rgba(255, 255, 255, 0.2549019608);
   border-radius: 0.2rem;
   padding: 0.5rem;
+  position: relative;
   margin: 10px 1px;
+}
+
+.absolute-link {
+  color: #FFFFFF;
+  height: 100%;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-decoration: none;
 }
 
 .main {
@@ -176,6 +193,7 @@ body {
 }
 .cover .content-cover .title-cover {
   color: #8257E6;
+  font-size: 3rem;
   text-transform: uppercase;
 }
 
@@ -200,19 +218,18 @@ body {
   height: 350px;
   width: 300px;
   position: relative;
-  transition: box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: scale(1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .card:hover {
   box-shadow: 0 10px 20px 4px rgba(255, 255, 255, 0.1);
-}
-.card:hover .card-icon {
-  opacity: 1;
-  transform: translateX(20%);
+  transform: scale(1.1);
 }
 
 .card-img {
   width: 100%;
   height: 50%;
+  position: relative;
 }
 .card-img .card-picture {
   height: 100%;
@@ -230,10 +247,12 @@ body {
 }
 .card-info .info-title {
   text-align: center;
+  position: relative;
 }
 .card-info .info {
   color: #8257E6;
   font-size: 14px;
+  position: relative;
 }
 .card-info .info.date {
   bottom: 10px;
@@ -243,9 +262,31 @@ body {
 }
 
 .footer {
+  align-items: center;
   background-color: #181818;
+  display: flex;
+  justify-content: center;
   height: 200px;
   width: 100%;
+}
+.footer .footer-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.footer .footer-content .social-networks .links {
+  position: relative;
+}
+.footer .footer-content .social-networks ion-icon {
+  font-size: 2rem;
+}
+
+.no-results {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @keyframes menu {
