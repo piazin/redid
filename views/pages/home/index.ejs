@@ -41,7 +41,7 @@
                                 <a href="/document/<%= document.slug %>" class="absolute-link"></a>
                             </h3>
                             <span class="info date" >há x meses</span>
-                            <input type="hidden" id="input-date-value-card" value="<%= document.createdAt %>">
+                            <input type="hidden" class="input-date-value-card" value="<%= document.dateCreate %>">
                         </div>
                     </article>
                 <% }) %>
@@ -51,7 +51,6 @@
     </main>
     <%- include('../../partials/footer-home'); %>
 </body>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <%- include('../../partials/footer'); %>
 </html>
 

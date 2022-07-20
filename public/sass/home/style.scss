@@ -138,7 +138,7 @@ body {
     top: 45px;
     width: 11rem;
     z-index: 4;
-    animation: modalMenu 0.4s normal;   
+    animation: modalMenu 0.2s normal;   
 }
 
 .categories-list {
@@ -319,7 +319,7 @@ body {
     justify-content: center;
 }
 
-@keyframes menu {
+@keyframes modalMenu {
     0% {
         opacity: 0;
         transform: translateX(110px);

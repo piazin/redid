@@ -1,3 +1,6 @@
+window.addEventListener('load', ()=>{
+    formatDate(info.formDate);
+});
 
 //config tinymce
 tinymce.init({
@@ -63,9 +66,18 @@ function checkButton(input){
     btn.disabled = input.value == '' || undefined ? true : false;
 }
 
+function formatDate(form){
+    var form = info.formDate;
+ 
+    form.forEach((input, index)=>{
+        console.log(input.value);
+    })
+}
+
 const info = {
     allSendButtons: document.getElementById('checkButton'),
-    inputDateValueCard: document.getElementById('input-date-value-card'),
+    formDate: document.querySelectorAll('input.input-date-value-card'),
+    relativeTime: document.querySelectorAll('span.date')
 }
 
 

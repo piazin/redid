@@ -1,8 +1,9 @@
 const Document = require('./Document');
 const Category = require('../category/Category');
 const slugify = require('slugify');
-const moment = require('moment');
-moment.locale('pt-br');
+
+const {parseISO, format, formatRelative} = require ('date-fns');
+const pt = require('date-fns/locale/pt');
 
 module.exports = {
     render_documents(req, res){
@@ -13,7 +14,6 @@ module.exports = {
             ],
             include: [{model: Category}]
         }).then((documents)=>{
-    
             res.render('pages/document/home.ejs', {documents: documents});
         }).catch((err)=>{
             console.error('err', err);
@@ -37,18 +37,23 @@ module.exports = {
             lower: true
         });
 
+        var date = format(new Date, 'yyyy-MM-dd HH:mm:ss');
+        var dateISO = parseISO(date);
+        var dateString = dateISO.toISOString();
+
         if(title != undefined && body != undefined && category_id != undefined){
             Document.create({
                 title: title,
                 slug: slug,
                 body: body,
                 urlThumbnail: url_thumbnail,
+                dateCreate: dateString,
                 categoryId: category_id
             }).then(()=>{
                 res.redirect('/admin/document');
             }).catch((err)=>{
                 res.redirect('/');
-                console.log(err);
+                console.error(err);
             })
         } else {
             res.redirect('/admin/document');

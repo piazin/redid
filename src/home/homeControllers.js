@@ -35,6 +35,10 @@ module.exports = {
                     {model: Category}
                 ]
             }).then((document)=>{
+                
+                if(!document) {
+                    return res.redirect('/');
+                }
 
                 Category.findAll().then((categories)=>{
                     res.render('pages/home/read-document.ejs', {document: document, categories: categories});

@@ -15,6 +15,10 @@ const Document = dbconnection.define('document', {
         type: Sequelize.TEXT,
         allowNull: false
     },
+    dateCreate: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     urlThumbnail: {
         type: Sequelize.STRING,
         allowNull: false
