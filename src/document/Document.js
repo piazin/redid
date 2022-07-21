@@ -20,7 +20,7 @@ const Document = dbconnection.define('document', {
         allowNull: false
     },
     urlThumbnail: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
     }
 });

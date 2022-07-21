@@ -11,7 +11,7 @@ th {
     display: flex;
     justify-content: center;
     right: 20px;
-    position: absolute;
+    position: fixed;
     height: 50px;
     width: 50px;
 }

@@ -1,12 +1,17 @@
 @import "var.scss";
 .main {
     overflow-x: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 
 .card-container {
     display: flex; 
     flex-direction: column;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 40px;
     gap: 10px; 
 
@@ -38,15 +43,13 @@
     }
 }
 
-.language-jsx, .chroma {
-    background-color: #282A36;
+pre[class*=language-] {
     overflow: scroll;
-    font-size: 1rem;
     padding: 1rem;
     max-height: 500px;
-    width: 70%;
+    width: 100%;
 }
-
+/*
 .token.keyword, span .kr {
     color: $keyword;
 }
@@ -68,6 +71,6 @@
 
 .kc {
     color: $primary-color;
-}
+}*/
 
 @import "media.scss";

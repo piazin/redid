@@ -14,7 +14,11 @@ module.exports = {
             ],
             include: [{model: Category}]
         }).then((documents)=>{
-            res.render('pages/document/home.ejs', {documents: documents});
+            if(documents != null && documents != undefined){
+                res.render('pages/document/home.ejs', {documents: documents});
+            } else {
+                res.redirect('/');
+            }
         }).catch((err)=>{
             console.error('err', err);
             res.redirect('/');
@@ -122,5 +126,27 @@ module.exports = {
             res.redirect(`/admin/document/edit/${id}`);
         }
         
-    }
+    },
+
+    
 }
+
+/*
+pag_teste(req, res){
+        var page = parseInt(req.params.num);
+        var offset, limit;
+
+        if(!isNaN(page)){
+            offset = (parseInt(page));
+        }
+
+        Document.findAndCountAll({
+            limit: limit,
+            offset: offset * limit
+        }).then((documents)=>{
+            res.json(documents);
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+*/

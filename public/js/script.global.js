@@ -20,11 +20,11 @@ tinymce.init({
         {text: 'C#', value: 'csharp'},
         {text: 'C++', value: 'cpp'}
     ],
-    toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+    toolbar: 'undo redo | styles | bold italic |  codesample | alignleft aligncenter alignright alignjustify | ' +
     'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
     'forecolor backcolor emoticons | help  ' ,
     menu: {
-      favs: { title: 'Meu favoritos', items: ' fullscreen | emoticons | code visualaid | searchreplace | codesample ' }
+      favs: { title: 'Meu favoritos', items: ' fullscreen | emoticons | codesample | code visualaid | searchreplace ' }
     },
     menubar: 'favs file edit view insert format tools table help',
     language: 'pt_BR',

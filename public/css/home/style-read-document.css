@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
 .main {
   overflow-x: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-container {
   display: flex;
   flex-direction: column;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 40px;
   gap: 10px;
 }
@@ -33,53 +37,52 @@
   max-width: 90%;
 }
 
-.language-jsx, .chroma {
-  background-color: #282A36;
+pre[class*=language-] {
   overflow: scroll;
-  font-size: 1rem;
   padding: 1rem;
   max-height: 500px;
-  width: 70%;
+  width: 100%;
 }
 
+/*
 .token.keyword, span .kr {
-  color: #9D4B5B;
+    color: $keyword;
 }
-
 .token.comment {
-  color: #535669;
+    color: $comment;
 }
-
 .token.operator, .o {
-  color: #9D4B5B;
+    color: $operator;
 }
-
 .token.function, .nx {
-  color: #4AEB76;
+    color: $function;
 }
-
 .token.parameter, .s2 {
-  color: #d3975d;
+    color: $parameter;
 }
-
 .token.interpolation {
-  color: #E9F288;
+    color: $interpolation;
 }
 
 .kc {
-  color: #8257E6;
+    color: $primary-color;
+}*/
+@media only screen and (max-width: 900px) {
+  .main {
+    display: block;
+  }
+  iframe {
+    max-width: 100%;
+  }
 }
-
 @media only screen and (max-width: 600px) {
   .card-container {
     font-size: 1rem;
   }
-
-  .language-jsx, .chroma {
-    width: 100%;
+  pre[class*=language-] {
     max-height: 400px;
+    width: 100%;
   }
-
   .main {
     overflow-x: hidden;
   }
@@ -90,7 +93,6 @@
     line-height: 35px;
     word-wrap: break-word;
   }
-
   .language-jsx, .chroma {
     padding: 0.8rem;
   }

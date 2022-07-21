@@ -1,5 +1,6 @@
 const Category = require('./Category');
 const slugify = require('slugify');
+const Document = require('../document/Document');
 
 module.exports = {
     render_category(req, res){
@@ -42,19 +43,31 @@ module.exports = {
         var id = req.params.id;
 
         if(id != undefined){
-            Category.destroy({
+            Document.destroy({
                 where: {
-                    id: id
+                    categoryId: id
                 }
             }).then(()=>{
-                setTimeout(()=>{
-                    res.redirect('/admin/category');
-                }, 1000);
+                
+                Category.destroy({
+                    where: {
+                        id: id
+                    }
+                }).then(()=>{
+                    setTimeout(()=>{
+                        res.redirect('/admin/category');
+                    }, 1000);
+                }).catch((err)=>{
+                    console.error('err', err);
+                    res.redirect('/');
+                });
+            
             }).catch((err)=>{
                 console.error('err', err);
                 res.redirect('/');
             });
-        }
+        }     
+        
     },
     render_category_edit(req, res){
         var id = req.params.id;

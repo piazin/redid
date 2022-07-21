@@ -1,11 +1,22 @@
+@media only screen and (max-width: 900px) {
+    .main {
+        display: block;
+    }
+
+    iframe {
+        max-width: 100%;
+    }
+}
+
 @media only screen and (max-width: 600px){
+
     .card-container {
         font-size: 1rem;
     }
 
-    .language-jsx, .chroma {
-        width: 100%;
+    pre[class*=language-] {
         max-height: 400px;
+        width: 100%;
     }
 
     .main {

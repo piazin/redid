@@ -24,6 +24,12 @@
         <div class="card-container">
             <div class="contend-card">
 
+                <% if(documents.length < 1){ %>
+                    <div class="no-results">
+                        <img src="/img/broken robot-bro.png" alt="broken robot" width="300px">
+                        <h3>Oops... Sem documentos por aqui.</h3>
+                    </div>
+                <% } %>
 
                 <% documents.forEach(document => {%>
                     <article class="card">

@@ -7,7 +7,6 @@ const { ptBR } = require('date-fns/locale');
 
 function formatDate(form){
     var span = fields.relativeTime;
-    
     form.forEach((input, index)=>{
 
         var now = format(new Date, 'yyyy-MM-dd HH:mm:ss');
@@ -19,7 +18,7 @@ function formatDate(form){
             dateNow, 
             { locale: ptBR }
         );
-        
+
         span[index].innerText = relative;
 
     })
