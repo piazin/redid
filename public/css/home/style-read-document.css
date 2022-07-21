@@ -1,18 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
 .main {
   overflow-x: auto;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .card-container {
+  align-self: center;
   display: flex;
   flex-direction: column;
   font-size: 1.1rem;
   line-height: 40px;
   gap: 10px;
+  width: 80%;
 }
 .card-container .title-document {
   text-align: center;
@@ -71,18 +69,23 @@ pre[class*=language-] {
   .main {
     display: block;
   }
+
   iframe {
-    max-width: 100%;
+    max-width: 100% !important;
+    min-height: 250px !important;
   }
 }
 @media only screen and (max-width: 600px) {
   .card-container {
     font-size: 1rem;
+    width: 100%;
   }
+
   pre[class*=language-] {
     max-height: 400px;
     width: 100%;
   }
+
   .main {
     overflow-x: hidden;
   }
@@ -93,6 +96,7 @@ pre[class*=language-] {
     line-height: 35px;
     word-wrap: break-word;
   }
+
   .language-jsx, .chroma {
     padding: 0.8rem;
   }

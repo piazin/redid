@@ -4,7 +4,8 @@
     }
 
     iframe {
-        max-width: 100%;
+        max-width: 100% !important; 
+        min-height: 250px !important;
     }
 }
 
@@ -12,6 +13,7 @@
 
     .card-container {
         font-size: 1rem;
+        width: 100%;
     }
 
     pre[class*=language-] {

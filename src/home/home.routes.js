@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const HomeControllers = require('./homeControllers');
+const homeControllers = require('./homeControllers');
 
-router.get('/', HomeControllers.render_home);
-router.get('/document/:slug', HomeControllers.render_document);
-router.get('/category/:slug', HomeControllers.render_category_by_slug);
+router.get('/', homeControllers.render_home);
+router.get('/document/:slug', homeControllers.render_document);
+router.get('/category/:slug', homeControllers.render_category_by_slug);
+router.get('/teste/:num', homeControllers.pag_teste);
 
 module.exports = router;
 

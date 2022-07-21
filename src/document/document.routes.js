@@ -10,5 +10,4 @@ router.post('/admin/document/create', documentControllers.to_save_document);
 router.post('/admin/document/delete/:id', documentControllers.delete_document);
 router.post('/admin/document/update/:id', documentControllers.update_document);
 
-//router.get('/teste/:num', documentControllers.pag_teste);
 module.exports = router;

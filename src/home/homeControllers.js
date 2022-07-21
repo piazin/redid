@@ -81,7 +81,27 @@ module.exports = {
         } else {
             res.redirect('/');
         }
-    }   
+    },
+    pag_teste(req, res){
+        var page = req.params.num;
+        var off = 0;
+        var limit = 4;
+
+        if(isNaN(page) || page <= 1){
+            off = 0
+        } else {
+            off = (parseInt(page) - 1) * limit;
+        }
+
+        Document.findAndCountAll({
+            limit: limit,
+            offset: off
+        }).then((documents)=>{
+            res.json(documents);
+        }).catch((err)=>{
+
+        });
+    }  
 }
 
 /*

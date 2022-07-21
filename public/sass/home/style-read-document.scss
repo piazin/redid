@@ -1,19 +1,17 @@
 @import "var.scss";
 .main {
     overflow-x: auto;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 
 .card-container {
-    display: flex; 
+    align-self: center;
+    display: flex;
     flex-direction: column;
     font-size: 1.1rem;
     line-height: 40px;
-    gap: 10px; 
+    gap: 10px;
+    width: 80%;
 
     .title-document {
         text-align: center;

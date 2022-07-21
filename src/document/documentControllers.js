@@ -130,23 +130,3 @@ module.exports = {
 
     
 }
-
-/*
-pag_teste(req, res){
-        var page = parseInt(req.params.num);
-        var offset, limit;
-
-        if(!isNaN(page)){
-            offset = (parseInt(page));
-        }
-
-        Document.findAndCountAll({
-            limit: limit,
-            offset: offset * limit
-        }).then((documents)=>{
-            res.json(documents);
-        }).catch((err)=>{
-            console.log(err);
-        })
-    }
-*/
