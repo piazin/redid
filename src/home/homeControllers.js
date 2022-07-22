@@ -5,7 +5,7 @@ const Document = require('../document/Document');
 module.exports = {
     render_home(req, res){
         Document.findAndCountAll({
-            limit: 4,
+            limit: 5,
             include: [
                 {model: Category}
             ],
@@ -86,7 +86,7 @@ module.exports = {
     pag_teste(req, res){
         var page = req.params.num;
         var off = 0;
-        var limit = 4;
+        var limit = 5;
 
         if(isNaN(page) || page <= 1){
             off = 0;

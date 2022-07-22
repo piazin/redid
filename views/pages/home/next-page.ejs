@@ -61,7 +61,7 @@
                 <a href="/page/<%= result.page - 1 %>" class="pagination-previos g-pagination">Voltar</a>
             <% } %>
             
-            <span>Página <%= result.page %> </span>
+            <span>Página <%= result.page %> de <%= Math.ceil( result.documents.count / 5 ) %> </span>
             <% if(result.next){ %>
                 <a href="/page/<%= result.page + 1 %>" class="pagination-next g-pagination">Proxima</a>
             <% } %>

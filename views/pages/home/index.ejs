@@ -55,8 +55,10 @@
         </div>
 
         <nav class="pagination">
-            <span>Página 1</span>
-            <a href="/page/2" class="pagination-next g-pagination">Proxima</a>
+            <%if(documents.rows.length >= 5){%>
+                <span>Página 1 de <%= Math.ceil( documents.count / 5 ) %></span>
+                <a href="/page/2" class="pagination-next g-pagination">Proxima</a>
+            <% } %>
         </nav>
 
     </main>
