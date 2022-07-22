@@ -61,11 +61,11 @@ module.exports = {
 
         if(slug != undefined){
             Category.findOne({
+                where: {slug: slug},
+                include: [{model: Document, order:[['createdAt', 'DESC']]}],
                 order: [
                     ['createdAt', 'DESC']
-                ],
-                where: {slug: slug},
-                include: [{model: Document}]
+                ]
             }).then((category)=>{
         
                 Category.findAll().then((categories)=>{
