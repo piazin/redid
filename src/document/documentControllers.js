@@ -44,7 +44,7 @@ module.exports = {
         var date = format(new Date, 'yyyy-MM-dd HH:mm:ss');
         var dateISO = parseISO(date);
         var dateString = dateISO.toISOString();
-
+        
         if(title != undefined && body != undefined && category_id != undefined){
             Document.create({
                 title: title,
@@ -127,6 +127,4 @@ module.exports = {
         }
         
     },
-
-    
 }

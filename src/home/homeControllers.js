@@ -4,13 +4,14 @@ const Document = require('../document/Document');
 
 module.exports = {
     render_home(req, res){
-        Document.findAll({
+        Document.findAndCountAll({
+            limit: 4,
             include: [
                 {model: Category}
             ],
             order: [
                 ['createdAt', 'DESC']
-            ]
+            ],
         }).then((documents)=>{
 
             Category.findAll().then((categories)=>{
@@ -88,18 +89,49 @@ module.exports = {
         var limit = 4;
 
         if(isNaN(page) || page <= 1){
-            off = 0
+            off = 0;
         } else {
             off = (parseInt(page) - 1) * limit;
         }
 
         Document.findAndCountAll({
+            order: [
+                ['createdAt', 'DESC']
+            ],  
             limit: limit,
-            offset: off
+            offset: off, 
+            include: [
+                {model: Category}
+            ]
         }).then((documents)=>{
-            res.json(documents);
-        }).catch((err)=>{
+            
+            if(documents.rows.length > 0){
+                var next;
 
+                if(off + limit >= documents.count) {
+                    next = false;
+                } else {
+                    next = true;
+                }
+
+                var result = {
+                    next: next,
+                    documents: documents,
+                    page: parseInt(page)
+                }
+
+                Category.findAll().then((categories)=>{
+                    //res.json(result);
+                    res.render('pages/home/next-page.ejs', {result: result, categories: categories});
+                }).catch((err)=>{
+                    console.error('err', err);
+                });
+            } else {
+                res.redirect('/');
+            }
+            
+        }).catch((err)=>{
+            console.error('err', err);
         });
     }  
 }

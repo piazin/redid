@@ -24,14 +24,14 @@
         <div class="card-container">
             <div class="contend-card">
 
-                <% if(documents.rows.length < 1){ %>
+                <% if(result.documents.rows.length < 1){ %>
                     <div class="no-results">
                         <img src="/img/broken robot-bro.png" alt="broken robot" width="300px">
                         <h3>Oops... Sem documentos por aqui.</h3>
                     </div>
                 <% } %>
 
-                <% documents.rows.forEach(document => {%>
+                <% result.documents.rows.forEach(document => {%>
                     <article class="card">
                         <div class="card-img">
                             <img src="<%= document.urlThumbnail %>" alt="" class="card-picture" >
@@ -55,8 +55,16 @@
         </div>
 
         <nav class="pagination">
-            <span>Página 1</span>
-            <a href="/page/2" class="pagination-next g-pagination">Proxima</a>
+            <% if(result.page <= 2) { %>
+                <a href="/" class="pagination-previos g-pagination">Voltar</a>
+            <% } else { %>
+                <a href="/page/<%= result.page - 1 %>" class="pagination-previos g-pagination">Voltar</a>
+            <% } %>
+            
+            <span>Página <%= result.page %> </span>
+            <% if(result.next){ %>
+                <a href="/page/<%= result.page + 1 %>" class="pagination-next g-pagination">Proxima</a>
+            <% } %>
         </nav>
 
     </main>
