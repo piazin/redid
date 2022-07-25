@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/home/style.css">
     <title>Blog Redid</title>
 </head>
@@ -17,7 +16,7 @@
         <section class="cover">
             <div class="content-cover">
                 <h1 class="title-cover">Redid</h1>
-                <p>Bem vindo ao nosso blog sobre tecnologia, inscreva-se.</p>
+                <p>Welcome to the Redid Blog</p>
             </div>
         </section>
 
@@ -55,7 +54,7 @@
         </div>
 
         <nav class="pagination">
-            <%if(documents.rows.length >= 6){%>
+            <%if(documents.rows.length >= 5){%>
                 <span>Página 1 de <%= Math.ceil( documents.count / 5 ) %></span>
                 <a href="/page/2" class="pagination-next g-pagination">Proxima</a>
             <% } %>

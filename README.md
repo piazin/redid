@@ -1,30 +1,24 @@
-## redid
+# redid
+## 🚀 um pequeno blog sobre tecnologia 
+<p align="center">
+ <a href="#objetivo">Objetivo</a> •
+ <a href="#roadmap">Roadmap</a> • 
+ <a href="#tecnologias">Tecnologias</a> • 
+ <a href="#contribuicao">Contribuição</a> • 
+ <a href="#licenc-a">Licença</a> • 
+ <a href="#autor">Autor</a>
+</p>
 
-small blog about technology
+<h4 align="center"> 
+	🚧  Admin Panel 🚀 Em construção...  🚧
+</h4>
 
-![Logo](https://thumbs2.imgbox.com/67/6c/Osc5Msir_t.png)
+### 🛠 Tecnologias
 
+As seguintes ferramentas foram usadas na construção do projeto:
 
-## authors
-
-- [@ls4803326@gmail.com](ls4803326@gmail.com)
-
-## used stack
-
-**Front-end:** EJS, SASS, Bulma, CSS, JS
-
-**Back-end:** Node JS, Express, MySql, Sequelize
-
-**dependencies:** body-parser, date-fns, dotenv, slugify
-
-**dev dependencies:** jest, webpack, webpack-cli 
-
-
-## hang tags
-
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-
-
-## screenshots
-
-![App Screenshot](https://thumbs2.imgbox.com/4b/a4/Fr7QjxNI_t.png)
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Bulma] (https://bulma.io/)
+- [Express] (https://expressjs.com/)
+- [Ejs] (https://ejs.co/)

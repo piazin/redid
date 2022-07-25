@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <%- include('../../partials/head'); %>
+    <link rel="stylesheet" href="/css/category/home.css">
+    <title>admin</title>
+</head>
+<body>
+    <div class="columns">
+
+        <%- include('../../partials/navigator'); %>
+        
+        <div class="column is-11">
+            <section class="section is-fullhd">
+                <h1 class="title">Administradores</h1>
+                <div class="table-container">
+                    
+                    <table class="table is-bordered is-striped is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <% admins.forEach(admin => { %>
+                            <tr>
+                                <th><%= admin.id %></th>
+                                <th><%= admin.email %></th>
+                                <th>
+
+                                    <a href="/admin/edit/<%= admin.id %>" class="button">
+                                        <ion-icon name="create-outline"></ion-icon>
+                                    </a>
+                                    <form class="is-inline-block" action="/admin/delete/<%= admin.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
+                                        <button class="button is-danger">
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        </button>
+                                    </form>
+
+                                </th>
+                            </tr>
+                            <% }) %>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <a href="/admin/create" id="btn-create-category">
+        <ion-icon name="add-outline"></ion-icon>
+    </a>
+</body>
+
+<%- include('../../partials/footer'); %>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="/css/global/style.css">
+    <%- include('../../partials/head'); %>
+    <title>criar novo usuário</title>
+</head>
+<body>
+
+    <div class="columns">
+
+        <%- include('../../partials/navigator'); %>
+        
+        <div class="column is-11">
+            <section class="section is-fullhd">
+
+                <div class="container">
+
+                    <h1 class="title is-4">Criar usuário</h1>
+                    
+                    <form action="/admin/save" method="post">
+                        <div class="column is-two-fifths">
+                            <label class="label">email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="email" onkeyup="onChangeInputs(this)" id="title" type="email" placeholder="admin@admin.com" required>
+                                <span class="icon is-small is-left">
+                                    <ion-icon name="folder-outline"></ion-icon>
+                                </span>
+                            </div>
+
+                            <label class="label">senha</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="password" onkeyup="onChangeInputs(this)" id="title" type="password" placeholder="admin@admin.com" required>
+                                <span class="icon is-small is-left">
+                                    <ion-icon name="folder-outline"></ion-icon>
+                                </span>
+                            </div>
+                            <p class="help">escolha um nome para sua categoria</p>
+                        </div>
+                        <div class="column is-two-fifths">
+                            <button class="button" disabled id="checkButton" type="submit">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <h1>create user</h1>
+
+    <form action="/admin/save" method="post">
+        <label for="email">email</label>
+        <input type="email" name="email" required>
+        <label for="password">password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+<%- include('../../partials/footer'); %>
+</html>

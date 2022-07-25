@@ -7,5 +7,7 @@ module.exports = {
         password: process.env.DATABASE_PASSWORD,
         host: process.env.DATABASE_HOST,
         dialect: process.env.DATABASE_DIALECT
-    }
+    },
+    salt: 10,
+    secret_express: 'Hamu12345'
 }

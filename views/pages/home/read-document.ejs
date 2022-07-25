@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/home/style.css">
     <link rel="stylesheet" href="/css/home/style-read-document.css">
     <link rel="stylesheet" href="/js/prismjs/prism.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title><%= document.title %></title>
 </head>
 <body>
@@ -19,7 +20,7 @@
             
         </section>
 
-        <div class="card-container" translate="no"> 
+        <div class="card-container" translate="no" data-aos="fade-up"> 
             <h1 class="title-cover title-document"><%= document.title %></h1>
             <span class="title-category">
                 <%= document.category.title %>
@@ -33,7 +34,11 @@
     </main>
     <%- include('../../partials/footer-home'); %>
 </body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="/js/prismjs/prism.js"></script>
+<script>
+    AOS.init();
+</script>
 <%- include('../../partials/footer'); %>
 
 </html>

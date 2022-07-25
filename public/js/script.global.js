@@ -63,7 +63,7 @@ function onChangeInputs(input){
 }
 
 function checkInputs(input){
-    if(input.value == '' || input.value == undefined){
+    if(input.value == '' || input.value == undefined || input.value.length < 4){
         input.classList.add('is-danger');
     } else {
         input.classList.remove('is-danger');
