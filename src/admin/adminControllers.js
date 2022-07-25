@@ -105,7 +105,12 @@ module.exports = {
     },
 
     logout(req, res){
-        req.session.user = undefined;
-        res.redirect('/');
+        req.session.destroy(err => {
+            if(err){
+                return console.error(err);
+            }
+            
+            res.redirect('/');
+        })
     }
 }

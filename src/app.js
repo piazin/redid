@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const redis = require('redis');
+const connectRedis = require('connect-redis');
 
 const dbconnection = require('../src/database/dbconnection');
 const config = require('../config/config');
@@ -11,10 +13,44 @@ const adminRouter = require('./admin/admin.routes');
 const categoryRouter = require('./category/category.routes');
 const documentRouter = require('./document/document.routes');
 
+
+const RedisStore = connectRedis(session);
+
+const redisClient = redis.createClient({
+    host: 'localhost',
+    port: 6379,
+    password: 'Piazin25$',
+    legacyMode: true
+});
+
+ redisClient.connect().catch(console.error);
+
+
+redisClient.on('error', (err)=>{
+    console.error('Não foi possível estabelecer uma conexão com redis' + err);
+});
+
+redisClient.on('connect', (err)=> {
+    console.log('Connected to redis com sucesso');
+});
+
 app.use(session({
+    store: new RedisStore({client: redisClient}),
+    secret: config.secret_express,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: false,
+        httpOnly: false,
+        maxAge: 300000
+    }
+}))
+
+
+/*app.use(session({
     secret: config.secret_express,
     cookie: {maxAge: 36000000}
-}));
+}));*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
