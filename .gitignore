@@ -1,2 +1,5 @@
 node_modules
 .env
+public/bulma
+public/css/global-css/style.css
+public/css/global-css/style.css.map
