@@ -23,7 +23,7 @@ const redisClient = redis.createClient({
     legacyMode: true
 });
 
- redisClient.connect().catch(console.error);
+redisClient.connect().catch(console.error);
 
 
 redisClient.on('error', (err)=>{
@@ -31,7 +31,7 @@ redisClient.on('error', (err)=>{
 });
 
 redisClient.on('connect', (err)=> {
-    console.log('Connected to redis com sucesso');
+    console.log('Connected to redis successfully');
 });
 
 app.use(session({

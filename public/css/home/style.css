@@ -168,7 +168,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  height: 500px;
+  height: 400px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -193,7 +193,7 @@ body {
 }
 .cover .content-cover .title-cover {
   color: #8257E6;
-  font-size: 3rem;
+  font-size: 2rem;
   text-transform: uppercase;
 }
 
