@@ -88,6 +88,19 @@ pre[class*=language-] {
     }
 }
 
+.cover {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: initial;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 /*
 .token.keyword, span .kr {
     color: $keyword;

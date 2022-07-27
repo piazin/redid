@@ -57,6 +57,7 @@ function confirmSendDelete(event, form){
         }); 
 }
 
+//check inputs and buttons
 function onChangeInputs(input){
     checkInputs(input);
     checkButton(input);
@@ -78,7 +79,9 @@ function checkButton(input){
 const info = {
     allSendButtons: document.getElementById('checkButton')
 }
+//end check inputs and buttons
 
+//on scroll events
 window.addEventListener('scroll', ()=> {
     back_to_top_isvisible();
     load_progress();
@@ -101,6 +104,7 @@ function load_progress(){
 function backToTop(){
     document.documentElement.scrollTop = 0;
 }
+//end sroll events
 
 
 
