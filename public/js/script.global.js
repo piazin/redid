@@ -75,9 +75,31 @@ function checkButton(input){
     btn.disabled = input.value == '' || undefined ? true : false;
 }
 
-
 const info = {
     allSendButtons: document.getElementById('checkButton')
+}
+
+window.addEventListener('scroll', ()=> {
+    back_to_top_isvisible();
+    load_progress();
+});
+
+function back_to_top_isvisible(){
+    var height = document.documentElement.scrollTop;
+    var arrow = document.querySelector('.back-to-top');
+    height > 450 ? arrow.classList.add('is-active') : arrow.classList.remove('is-active');
+}
+
+function load_progress(){
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+
+    document.getElementById('progress').style.width = `${scrolled}%`;
+}
+
+function backToTop(){
+    document.documentElement.scrollTop = 0;
 }
 
 

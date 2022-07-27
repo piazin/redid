@@ -18,17 +18,24 @@
 
                     <h1 class="title is-4">Criar usuário</h1>
                     
-                    <form action="/admin/create" method="post">
+                    <form action="/admin/edit/<%= admin.id %>" method="post">
                         <div class="column is-two-fifths">
                             <label class="label">email</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" name="email" onkeyup="onChangeInputs(this)" id="title" type="email" placeholder="admin@admin.com" required>
+                                <input class="input" name="email" onkeyup="onChangeInputs(this)" id="title" type="email" placeholder="admin@admin.com" value="<%= admin.email %>" required>
                                 <span class="icon is-small is-left">
                                     <ion-icon name="person-add-outline"></ion-icon>
                                 </span>
                             </div>
 
-                            <label class="label">senha</label>
+                            <label class="label">senha atual</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input" name="oldPassword" onkeyup="onChangeInputs(this)" id="title" type="password" placeholder="************" required>
+                                <span class="icon is-small is-left">
+                                    <ion-icon name="key-outline"></ion-icon>
+                                </span>
+                            </div>
+                            <label class="label">senha nova</label>
                             <div class="control has-icons-left has-icons-right">
                                 <input class="input" name="password" onkeyup="onChangeInputs(this)" id="title" type="password" placeholder="************" required>
                                 <span class="icon is-small is-left">

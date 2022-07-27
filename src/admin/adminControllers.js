@@ -46,7 +46,7 @@ module.exports = {
                         email: email,
                         password: hash
                     }).then((resp)=>{
-                        res.redirect('/admin/user');
+                        res.redirect('/admin/users');
                     }).catch((err)=>{
                         console.error('err', err);
                         res.redirect('/admin/users');
@@ -60,6 +60,66 @@ module.exports = {
             res.redirect('/');
         }
         
+    },
+    
+    render_edit_user(req, res){
+        var id = req.params.id;
+    
+        Admin.findOne({
+            where: {
+                id: id
+            }
+        }).then((admin)=>{
+            res.render('pages/auth/edit-user.ejs', {admin: admin});
+        }).catch(console.error());
+
+    },
+    
+    update_user(req, res){
+        var id = req.params.id;
+        var {email, password, oldPassword} = req.body;
+
+        Admin.findOne({
+            where: {
+                id: id
+            }
+        }).then((user)=>{
+        
+            const hash = bcrypt.compareSync(oldPassword, user.password);
+
+            if(hash){
+                
+                const salt = bcrypt.genSaltSync(config.salt);
+                const hash = bcrypt.hashSync(password, salt);
+
+                Admin.update({
+                    email: email,
+                    password: hash
+                }, {
+                    where: {
+                        id: id
+                    }
+                }).then(()=>{
+                    res.redirect('/admin/users');
+                }).catch((err)=>{
+                    console.error(err);
+                });
+            } else {
+                res.redirect('/admin/users');
+            }
+        })
+    },
+    
+    delete_user(req, res){
+        var id = req.params.id;
+
+        if(id != undefined){
+            Admin.destroy({where: {id: id}}).then(()=>{
+                res.redirect('/admin/users');
+            }).catch(console.error());
+        } else {
+            res.redirect('/admin/users');
+        }
     },
 
     render_login(req, res){

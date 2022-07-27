@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
-.main {
-  overflow-x: auto;
+.rd_main {
+  overflow: initial;
+  position: relative;
+}
+
+.main-contend {
+  display: flex;
+  justify-content: center;
 }
 
 .card-container {
@@ -12,6 +18,7 @@
   list-style-position: inside;
   gap: 10px;
   width: 80%;
+  position: relative;
 }
 .card-container .title-document {
   text-align: center;
@@ -41,6 +48,37 @@ pre[class*=language-] {
   padding: 1rem;
   max-height: 500px;
   width: 100%;
+}
+
+.back-to-top {
+  background-color: #181818;
+  border: none;
+  border-radius: 50%;
+  opacity: 0;
+  cursor: pointer;
+  position: sticky;
+  height: 50px;
+  left: 0px;
+  top: 20%;
+  width: 50px;
+  z-index: 2;
+  margin-top: 10%;
+  transition: all 0.2s ease;
+}
+.back-to-top ion-icon {
+  color: #8257E6;
+  font-size: 16px;
+}
+.back-to-top #progress {
+  background-color: #8257E6;
+  bottom: -10px;
+  position: absolute;
+  left: 0px;
+  height: 2px;
+  width: 0%;
+}
+.back-to-top.is-active {
+  opacity: 1;
 }
 
 /*
@@ -80,6 +118,10 @@ pre[class*=language-] {
   .card-container {
     font-size: 1rem;
     width: 100%;
+  }
+
+  .back-to-top {
+    display: none;
   }
 
   pre[class*=language-] {
