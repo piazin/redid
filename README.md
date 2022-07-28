@@ -6,9 +6,11 @@ a small blog about technologies
 ## demonstration
 
 **home**
+
 ![](https://images2.imgbox.com/9f/ed/Gteqy9rD_o.gif)
 
 **admin panel**
+
 ![](https://images2.imgbox.com/34/d7/4DUApEKV_o.gif)
 
 
