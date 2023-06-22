@@ -13,39 +13,38 @@ const adminRouter = require('./admin/admin.routes');
 const categoryRouter = require('./category/category.routes');
 const documentRouter = require('./document/document.routes');
 
-
 const RedisStore = connectRedis(session);
 
 const redisClient = redis.createClient({
-    host: 'localhost',
-    port: 6379,
-    password: 'Piazin25$',
-    legacyMode: true
+  host: 'localhost',
+  port: 6379,
+  password: '',
+  legacyMode: true,
 });
 
 redisClient.connect().catch(console.error);
 
-
-redisClient.on('error', (err)=>{
-    console.error('Não foi possível estabelecer uma conexão com redis' + err);
+redisClient.on('error', (err) => {
+  console.error('Não foi possível estabelecer uma conexão com redis' + err);
 });
 
-redisClient.on('connect', (err)=> {
-    console.log('Connected to redis successfully');
+redisClient.on('connect', (err) => {
+  console.log('Connected to redis successfully');
 });
 
-app.use(session({
-    store: new RedisStore({client: redisClient}),
+app.use(
+  session({
+    store: new RedisStore({ client: redisClient }),
     secret: config.secret_express,
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false,
-        httpOnly: false,
-        maxAge: 86400000
-    }
-}))
-
+      secure: false,
+      httpOnly: false,
+      maxAge: 86400000,
+    },
+  })
+);
 
 /*app.use(session({
     secret: config.secret_express,
@@ -53,18 +52,19 @@ app.use(session({
 }));*/
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view egine', 'ejs');
 app.use(express.static('public'));
 
 dbconnection
-    .authenticate()
-    .then(()=>{
-        console.log('connected database');
-    }).catch((err)=>{
-        console.error('database connection failed: ', err);
-    });
+  .authenticate()
+  .then(() => {
+    console.log('connected database');
+  })
+  .catch((err) => {
+    console.error('database connection failed: ', err);
+  });
 
 app.use('/', homeRouter);
 app.use('/', categoryRouter);
