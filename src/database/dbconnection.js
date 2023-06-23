@@ -8,6 +8,11 @@ const dbconnection = new Sequelize(name, user, password, {
   dialect: dialect,
   timezone: '-03:00',
   logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+    },
+  },
 });
 
 module.exports = dbconnection;
