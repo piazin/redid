@@ -13,29 +13,8 @@ const adminRouter = require('./admin/admin.routes');
 const categoryRouter = require('./category/category.routes');
 const documentRouter = require('./document/document.routes');
 
-const RedisStore = connectRedis(session);
-
-const redisClient = redis.createClient({
-  host: config.redis.host,
-  port: 6379,
-  password: config.redis.password,
-  username: config.redis.password,
-  legacyMode: true,
-});
-
-redisClient.connect().catch(console.error);
-
-redisClient.on('error', (err) => {
-  console.error('Não foi possível estabelecer uma conexão com redis' + err);
-});
-
-redisClient.on('connect', (err) => {
-  console.log('Connected to redis successfully');
-});
-
 app.use(
   session({
-    store: new RedisStore({ client: redisClient }),
     secret: config.secret_express,
     resave: false,
     saveUninitialized: false,
