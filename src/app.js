@@ -16,9 +16,10 @@ const documentRouter = require('./document/document.routes');
 const RedisStore = connectRedis(session);
 
 const redisClient = redis.createClient({
-  host: config.redis_host,
+  host: config.redis.host,
   port: 6379,
-  password: '',
+  password: config.redis.password,
+  username: config.redis.password,
   legacyMode: true,
 });
 
