@@ -10,4 +10,5 @@ module.exports = {
   },
   salt: process.env.SALT,
   secret_express: process.env.SECRET_EXPRESS,
+  redis_host: process.env.REDIS_HOST,
 };
