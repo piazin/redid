@@ -1,83 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="/css/global/style.css">
+  <head>
+    <link rel="stylesheet" href="/css/global/style.css" />
     <%- include('../../partials/head'); %>
+    <style>
+      /* Estilos personalizados */
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+
+      .columns {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .is-11 {
+        flex-basis: 91.66667%;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .control {
+        margin-bottom: 15px;
+      }
+
+      .input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.3s;
+      }
+
+      .input:focus {
+        border-color: #007bff;
+      }
+
+      .select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'><path d='M0 2l4 4 4-4h-8z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        background-size: 8px 8px;
+        transition: border-color 0.3s;
+      }
+
+      .select:focus {
+        border-color: #007bff;
+      }
+
+      .help {
+        font-size: 14px;
+        margin-top: 5px;
+        color: #888;
+      }
+
+      .button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .button:disabled {
+        background-color: #007bff4d;
+        cursor: not-allowed;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .is-danger {
+        color: #ff3860;
+      }
+
+      .link {
+        color: #007bff;
+        text-decoration: underline;
+      }
+
+      /* Fim dos estilos personalizados */
+    </style>
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="columns">
+      <div class="column is-11">
+        <section class="section is-fullhd">
+          <div class="container">
+            <h1 class="title is-4">Criar documento</h1>
 
-        <%- include('../../partials/navigator'); %>
-        
-        <div class="column is-11">
-            <section class="section is-fullhd">
-
-                <div class="container">
-
-                    <h1 class="title is-4">Criar documento</h1>
-                    
-                    <form action="/admin/document/create" method="post">
-                        <div class="column is-two-fifths">
-                            <label class="label">Nome</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input" onkeyup="onChangeInputs(this)" name="title" id="title" type="text" placeholder="ex: nodejs" required>
-                                <span class="icon is-small is-left">
-                                    <ion-icon name="folder-outline"></ion-icon>
-                                </span>
-                            </div>
-                            <p class="help">escolha um nome para seu documento</p>
-                        </div>
-
-                        <div class="column is-10">
-                            <label class="label">Escreva seu documento</label>
-                            <textarea name="body" id="tinyEditor" required>
-
-                            </textarea>
-                        </div>
-
-                        <div class="column is-two-fifths">
-                            <label class="label">Imagem</label>
-                            <input type="url" class="input" onkeyup="onChangeInputs(this)" name="url_thumbnail" autocomplete="off" required placeholder="https://images2.imgbox.com"><!--https://images2.imgbox.com/7d/e4/dZyjVVEb_o.jpg-->
-                            <p class="help">link da imagem para o poster</p>
-                        </div>
-                        
-                        <div class="column is-two-fifths">
-                            
-                            <div class="control has-icons-left">
-                                <div class="select">
-                                  <select required name="category_id">
-                                    <option selected disabled hidden>Selecionar categoria</option>
-                                    <% categories.forEach(category => {%>
-                                        <option value="<%= category.id %>"><%= category.title %></option>
-                                    <% }) %>
-                                  </select>
-                                </div>
-                                <div class="icon is-small is-left">
-                                  <ion-icon name="planet-outline"></ion-icon>
-                                </div>
-                            </div>
-                            <% if(categories.length > 0){ %>
-                                <p class="help">selecione uma categoria</p>
-                              <% } else{ %>  
-                                <p class="help is-danger">você precisa <a href="/admin/category/create" class="link ">criar uma categoria</a> primeiro!</p>
-                             <% } %>
-                              
-                        </div>
-
-                        <div class="column is-two-fifths">
-                            <button class="button" id="checkButton" disabled type="submit">Salvar</button>
-                        </div>
-
-                    </form>
+            <form action="/admin/document/create" method="post">
+              <div class="column is-two-fifths">
+                <label class="label">Nome</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input
+                    class="input"
+                    onkeyup="onChangeInputs(this)"
+                    name="title"
+                    id="title"
+                    type="text"
+                    placeholder="ex: nodejs"
+                    required
+                  />
+                  <span class="icon is-small is-left">
+                    <ion-icon name="folder-outline"></ion-icon>
+                  </span>
                 </div>
-            </section>
-        </div>
+                <p class="help">escolha um nome para seu documento</p>
+              </div>
 
+              <div class="column is-10">
+                <label class="label">Escreva seu documento</label>
+                <textarea name="body" id="tinyEditor" required> </textarea>
+              </div>
+
+              <div class="column is-two-fifths">
+                <label class="label">Imagem</label>
+                <input
+                  type="url"
+                  class="input"
+                  onkeyup="onChangeInputs(this)"
+                  name="url_thumbnail"
+                  autocomplete="off"
+                  required
+                  placeholder="https://images2.imgbox.com"
+                /><!--https://images2.imgbox.com/7d/e4/dZyjVVEb_o.jpg-->
+                <p class="help">link da imagem para o poster</p>
+              </div>
+
+              <div class="column is-two-fifths">
+                <div class="control has-icons-left">
+                  <div class="select">
+                    <select required name="category_id">
+                      <option selected disabled hidden>Selecionar categoria</option>
+                      <% categories.forEach(category => {%>
+                      <option value="<%= category.id %>"><%= category.title %></option>
+                      <% }) %>
+                    </select>
+                  </div>
+                  <div class="icon is-small is-left">
+                    <ion-icon name="planet-outline"></ion-icon>
+                  </div>
+                </div>
+                <% if(categories.length > 0){ %>
+                <p class="help">selecione uma categoria</p>
+                <% } else{ %>
+                <p class="help is-danger">
+                  você precisa
+                  <a href="/admin/category/create" class="link">criar uma categoria</a> primeiro!
+                </p>
+                <% } %>
+              </div>
+
+              <div class="column is-two-fifths">
+                <button class="button" id="checkButton" disabled type="submit">Salvar</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </div>
-    
-    
-</body>
-<%- include('../../partials/footer'); %>
+
+    <%- include('../../partials/footer'); %>
+  </body>
 </html>

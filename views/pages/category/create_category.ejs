@@ -1,45 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="/css/global/style.css">
+  <head>
+    <link rel="stylesheet" href="/css/global/style.css" />
     <%- include('../../partials/head'); %>
+    <style>
+      /* Estilos personalizados */
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1e1e1e;
+        color: #fff;
+        height: 100vh;
+      }
+
+      .columns {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .is-11 {
+        flex-basis: 91.66667%;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .control {
+        margin-bottom: 15px;
+      }
+
+      .input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.3s;
+      }
+
+      .input:focus {
+        border-color: #007bff;
+      }
+
+      .help {
+        font-size: 14px;
+        margin-top: 5px;
+        color: #888;
+      }
+
+      .button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .button:disabled {
+        background-color: #0057b35e;
+        cursor: not-allowed;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Fim dos estilos personalizados */
+    </style>
     <title>Document</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="columns">
+      <%- include('../../partials/navigator'); %>
 
-        <%- include('../../partials/navigator'); %>
-        
-        <div class="column is-11">
-            <section class="section is-fullhd">
+      <div class="column is-11">
+        <section class="section is-fullhd">
+          <div class="container">
+            <h1 class="title is-4">Criar categorias</h1>
 
-                <div class="container">
-
-                    <h1 class="title is-4">Criar categorias</h1>
-                    
-                    <form action="/category/create" method="post">
-                        <div class="column is-two-fifths">
-                            <label class="label">Nome</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input" name="title" onkeyup="onChangeInputs(this)" id="title" type="text" placeholder="ex: nodejs" required>
-                                <span class="icon is-small is-left">
-                                    <ion-icon name="folder-outline"></ion-icon>
-                                </span>
-                            </div>
-                            <p class="help">escolha um nome para sua categoria</p>
-                        </div>
-                        <div class="column is-two-fifths">
-                            <button class="button" disabled id="checkButton" type="submit">Salvar</button>
-                        </div>
-                    </form>
+            <form action="/category/create" method="post">
+              <div class="column is-two-fifths">
+                <label class="label">Nome</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input
+                    class="input"
+                    name="title"
+                    onkeyup="onChangeInputs(this)"
+                    id="title"
+                    type="text"
+                    placeholder="ex: nodejs"
+                    required
+                  />
+                  <span class="icon is-small is-left">
+                    <ion-icon name="folder-outline"></ion-icon>
+                  </span>
                 </div>
-            </section>
-        </div>
-
+                <p class="help">escolha um nome para sua categoria</p>
+              </div>
+              <div class="column is-two-fifths">
+                <button class="button" disabled id="checkButton" type="submit">Salvar</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </div>
-    
-    
-</body>
-<%- include('../../partials/footer'); %>
+
+    <%- include('../../partials/footer'); %>
+  </body>
 </html>

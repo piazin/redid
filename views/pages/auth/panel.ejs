@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Redirecionamento</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1e1e1e;
+        color: #fff;
+        height: 100vh;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .links {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .links a {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: #8257e6;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .links a:hover {
+        background-color: #8257e6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Painel de administração</h1>
+      <div class="links">
+        <a href="/admin/document">Documentos</a>
+        <a href="/admin/category">Categorias</a>
+        <a href="/admin/users">Usuários</a>
+      </div>
+    </div>
+  </body>
+</html>

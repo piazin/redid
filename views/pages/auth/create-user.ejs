@@ -1,61 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="/css/global/style.css">
+  <head>
+    <link rel="stylesheet" href="/css/global/style.css" />
     <%- include('../../partials/head'); %>
+    <style>
+      /* Estilos personalizados */
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+
+      .columns {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .is-11 {
+        flex-basis: 91.66667%;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .label {
+        font-size: 16px;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .control {
+        position: relative;
+      }
+
+      .input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        transition: border-color 0.3s;
+      }
+
+      .input:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+        color: #888;
+      }
+
+      .help {
+        font-size: 14px;
+        color: #888;
+        margin-top: 5px;
+      }
+
+      .button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* Fim dos estilos personalizados */
+    </style>
     <title>criar novo usuário</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="columns">
+      <div class="column is-11">
+        <section class="section is-fullhd">
+          <div class="container">
+            <h1 class="title is-4">Criar usuário</h1>
 
-        <%- include('../../partials/navigator'); %>
-        
-        <div class="column is-11">
-            <section class="section is-fullhd">
-
-                <div class="container">
-
-                    <h1 class="title is-4">Criar usuário</h1>
-                    
-                    <form action="/admin/create" method="post">
-                        <div class="column is-two-fifths">
-                            <label class="label">email</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input" name="email" onkeyup="onChangeInputs(this)" id="title" type="email" placeholder="admin@admin.com" required>
-                                <span class="icon is-small is-left">
-                                    <ion-icon name="person-add-outline"></ion-icon>
-                                </span>
-                            </div>
-
-                            <label class="label">senha</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input" name="password" onkeyup="onChangeInputs(this)" id="title" type="password" placeholder="************" required>
-                                <span class="icon is-small is-left">
-                                    <ion-icon name="key-outline"></ion-icon>
-                                </span>
-                            </div>
-                            <p class="help">sua senha precisa ter no minimo 6 caracteres</p>
-                        </div>
-                        <div class="column is-two-fifths">
-                            <button class="button" disabled id="checkButton" type="submit">Salvar</button>
-                        </div>
-                    </form>
+            <form action="/admin/create" method="post">
+              <div class="column is-two-fifths">
+                <label class="label">email</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input
+                    class="input"
+                    name="email"
+                    onkeyup="onChangeInputs(this)"
+                    id="title"
+                    type="email"
+                    placeholder="admin@admin.com"
+                    required
+                  />
+                  <span class="icon is-small is-left">
+                    <ion-icon name="person-add-outline"></ion-icon>
+                  </span>
                 </div>
-            </section>
-        </div>
 
+                <label class="label">senha</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input
+                    class="input"
+                    name="password"
+                    onkeyup="onChangeInputs(this)"
+                    id="title"
+                    type="password"
+                    placeholder="************"
+                    required
+                  />
+                  <span class="icon is-small is-left">
+                    <ion-icon name="key-outline"></ion-icon>
+                  </span>
+                </div>
+                <p class="help">sua senha precisa ter no mínimo 6 caracteres</p>
+              </div>
+              <div class="column is-two-fifths">
+                <button class="button" disabled id="checkButton" type="submit">Salvar</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </div>
-    <h1>create user</h1>
+
+    <!-- <h1>create user</h1>
 
     <form action="/admin/save" method="post">
-        <label for="email">email</label>
-        <input type="email" name="email" required>
-        <label for="password">password</label>
-        <input type="password" name="password" required>
+      <label for="email">email</label>
+      <input type="email" name="email" required />
+      <label for="password">password</label>
+      <input type="password" name="password" required />
 
-        <button type="submit">Salvar</button>
-    </form>
-</body>
-<%- include('../../partials/footer'); %>
+      <button type="submit">Salvar</button>
+    </form> -->
+
+    <%- include('../../partials/footer'); %>
+  </body>
 </html>

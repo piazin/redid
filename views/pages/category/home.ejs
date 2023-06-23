@@ -1,75 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
+    <link rel="stylesheet" href="/css/global/style.css" />
     <%- include('../../partials/head'); %>
-   
-    <link rel="stylesheet" href="/css/category/home.css">
     <title>Categorias</title>
-</head>
-<body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1e1e1e;
+        color: #fff;
+        height: 100vh;
+      }
+
+      .columns {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .column {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .section {
+        background-color: #1e1e1e;
+        border-radius: 4px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .table-container {
+        overflow-x: auto;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        background-color: #1e1e1e;
+      }
+
+      .table th,
+      .table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .table th {
+        background-color: #1e1e1e;
+      }
+
+      .button {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 8px 12px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .is-danger {
+        background-color: #dc3545;
+      }
+
+      .is-danger:hover {
+        background-color: #ac1f2d;
+      }
+
+      #btn-create-category {
+        display: inline-block;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background-color: #8257e6;
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 24px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      #btn-create-category:hover {
+        background-color: #8257e6c9;
+      }
+    </style>
+  </head>
+  <body>
     <div class="columns">
-
-        <%- include('../../partials/navigator'); %>
-        
-        <div class="column is-11">
-            <section class="section is-fullhd">
-                <h1 class="title">Categorias</h1>
-                <div class="table-container">
-                    
-                    <table class="table is-striped is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Titulo</th>
-                                <th>Slug</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <% categories.forEach(category => { %>
-                            <tr>
-                                <th><%= category.id %></th>
-                                <th><%= category.title %></th>
-                                <th><%= category.slug %></th>
-                                <th>
-
-                                    <a href="/admin/category/edit/<%= category.id%>" class="button">
-                                        <ion-icon name="create-outline"></ion-icon>
-                                    </a>
-                                    <form class="is-inline-block" action="/admin/category/delete/<%= category.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
-                                        <button class="button is-danger">
-                                            <ion-icon name="trash-outline"></ion-icon>
-                                        </button>
-                                    </form>
-
-                                </th>
-                            </tr>
-                            <% }) %>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-
+      <%- include('../../partials/navigator'); %>
+      <div class="column is-11">
+        <section class="section is-fullhd">
+          <h1 class="title">Categorias</h1>
+          <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Título</th>
+                  <th>Slug</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% categories.forEach(category => { %>
+                <tr>
+                  <td><%= category.id %></td>
+                  <td><%= category.title %></td>
+                  <td><%= category.slug %></td>
+                  <td>
+                    <a href="/admin/category/edit/<%= category.id %>" class="button">
+                      <ion-icon name="create-outline"></ion-icon>
+                    </a>
+                    <form
+                      class="is-inline-block"
+                      action="/admin/category/delete/<%= category.id %>"
+                      onsubmit="confirmSendDelete(event, this)"
+                      method="post"
+                    >
+                      <button class="button is-danger">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </div>
-
     <a href="/admin/category/create" id="btn-create-category">
-        <ion-icon name="add-outline"></ion-icon>
+      <ion-icon name="add-outline"></ion-icon>
     </a>
-    
-</body>
-<%- include('../../partials/footer'); %>
-<script>
-    window.addEventListener('resize', ()=>{
-        var windowWidth = document.documentElement.clientWidth;
-
-        if(windowWidth <= 1000){
-            document.querySelector('.table').classList.remove('is-fullwidth');
-        } else {
-            document.querySelector('.table').classList.add('is-fullwidth');
-        }
-    })
-</script>
+  </body>
+  <%- include('../../partials/footer'); %>
+  <script>
+    window.addEventListener('resize', () => {
+      var windowWidth = document.documentElement.clientWidth;
+      if (windowWidth <= 1000) {
+        document.querySelector('.table').classList.remove('is-fullwidth');
+      } else {
+        document.querySelector('.table').classList.add('is-fullwidth');
+      }
+    });
+  </script>
 </html>

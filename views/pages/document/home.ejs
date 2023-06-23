@@ -1,80 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <%- include('../../partials/head'); %>
-    <link rel="stylesheet" href="/css/global/style.css">
-    <link rel="stylesheet" href="/css/category/home.css">
+    <link rel="stylesheet" href="/css/global/style.css" />
+    <link rel="stylesheet" href="/css/category/home.css" />
+    <style>
+      /* Estilos personalizados */
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+
+      .columns {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .is-11 {
+        flex-basis: 91.66667%;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .table-container {
+        overflow-x: auto;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .table th,
+      .table td {
+        padding: 10px;
+      }
+
+      .table th {
+        background-color: #1e1e1e;
+        text-align: left;
+      }
+
+      .table-container .button {
+        margin-right: 5px;
+      }
+
+      /* Fim dos estilos personalizados */
+    </style>
     <title>Documentos</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="columns">
+      <!-- <%- include('../../partials/navigator'); %> -->
 
-        <%- include('../../partials/navigator'); %>
-        
-        <div class="column is-11">
-            <section class="section is-fullhd">
-                <h1 class="title">Documentos</h1>
-                <div class="table-container">
-                    
-                    <table class="table is-striped is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Titulo</th>
-                                <th>Categoria</th>
-                                <th>Post preview</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% documents.forEach(document => { %>
-                                <tr>
-                                    <th><%= document.id %></th>
-                                    <th><%= document.title %></th>
-                                    <th><%= document.category.title %></th>
-                                    <th>
-                                        <figure class="image is-64x64">
-                                            <img  src="<%= document.urlThumbnail %>" alt="picture" style="max-height: 100%;">
-                                        </figure>
-                                    </th>
-                                    <th>
-    
-                                        <a href="/admin/document/edit/<%= document.id %>" class="button">
-                                            <ion-icon name="create-outline"></ion-icon>
-                                        </a>
-                                        <form class="is-inline-block" action="/admin/document/delete/<%= document.id %>" onsubmit="confirmSendDelete(event, this)" method="post">
-                                            <button class="button is-danger">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                            </button>
-                                        </form>
-    
-                                    </th>
-                                </tr>   
-                            <% }) %>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-
+      <div class="column is-11">
+        <section class="section is-fullhd">
+          <h1 class="title">Documentos</h1>
+          <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Título</th>
+                  <th>Categoria</th>
+                  <th>Pré-visualização</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% documents.forEach(document => { %>
+                <tr>
+                  <td><%= document.id %></td>
+                  <td><%= document.title %></td>
+                  <td><%= document.category.title %></td>
+                  <td>
+                    <figure class="image is-64x64">
+                      <img
+                        src="<%= document.urlThumbnail %>"
+                        alt="picture"
+                        style="max-height: 100%"
+                      />
+                    </figure>
+                  </td>
+                  <td>
+                    <a href="/admin/document/edit/<%= document.id %>" class="button">
+                      <ion-icon name="create-outline"></ion-icon>
+                    </a>
+                    <form
+                      class="is-inline-block"
+                      action="/admin/document/delete/<%= document.id %>"
+                      onsubmit="confirmSendDelete(event, this)"
+                      method="post"
+                    >
+                      <button class="button is-danger">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </div>
 
     <a href="/admin/document/create" id="btn-create-category">
-        <ion-icon name="add-outline"></ion-icon>
+      <ion-icon name="add-outline"></ion-icon>
     </a>
-    
-</body>
-<%- include('../../partials/footer'); %>
-<script>
-    window.addEventListener('resize', ()=>{
+
+    <%- include('../../partials/footer'); %>
+    <script>
+      window.addEventListener('resize', () => {
         var windowWidth = document.documentElement.clientWidth;
 
-        if(windowWidth <= 1000){
-            document.querySelector('.table').classList.remove('is-fullwidth');
+        if (windowWidth <= 1000) {
+          document.querySelector('.table').classList.remove('is-fullwidth');
         } else {
-            document.querySelector('.table').classList.add('is-fullwidth');
+          document.querySelector('.table').classList.add('is-fullwidth');
         }
-    })
-</script>
+      });
+    </script>
+  </body>
 </html>
